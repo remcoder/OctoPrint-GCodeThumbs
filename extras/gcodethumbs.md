@@ -10,9 +10,9 @@ license: MIT
 # TODO
 date: 2017-05-10
 
-homepage: https://github.com/remcoder/OctoprintGCodeThumbs
-source: https://github.com/remcoder/OctoprintGCodeThumbs
-archive: https://github.com/remcoder/OctoprintGCodeThumbs/archive/master.zip
+homepage: https://github.com/remcoder/OctoPrint-GCodeThumbs
+source: https://github.com/remcoder/OctoPrint-GCodeThumbs
+archive: https://github.com/remcoder/OctoPrint-GCodeThumbs/archive/master.zip
 
 
 

@@ -27,7 +27,7 @@ plugin_author = "Remco Veldkamp"
 plugin_author_email = "remcoder@gmail.com"
 
 # The plugin's homepage URL. Can be overwritten within OctoPrint's internal data via __plugin_url__ in the plugin module
-plugin_url = "https://github.com/remcoder/OctoprintGCodeThumbs"
+plugin_url = "https://github.com/remcoder/OctoPrint-GCodeThumbs"
 
 # The plugin's license. Can be overwritten within OctoPrint's internal data via __plugin_license__ in the plugin module
 plugin_license = "MIT"

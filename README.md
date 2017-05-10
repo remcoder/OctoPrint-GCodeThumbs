@@ -7,4 +7,4 @@ Enriches the file list is with a preview thumbnail for each gcode file.
 Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wiki/Plugin:-Plugin-Manager)
 or manually using this URL:
 
-    https://github.com/remcoder/OctoprintGCodeThumbs/archive/master.zip
+    https://github.com/remcoder/OctoPrint-GCodeThumbs/archive/master.zip
