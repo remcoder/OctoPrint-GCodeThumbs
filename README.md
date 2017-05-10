@@ -1,6 +1,6 @@
 # Octoprint Gcode Thumbs
 
-Enriches the file list is with a preview thumbnail for each gcode file.
+Enriches the file list with a preview thumbnail for each gcode file.
 
 ## Setup
 
