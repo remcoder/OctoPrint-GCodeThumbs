@@ -34,8 +34,8 @@ $(function() {
 
       if (elements.length)
         enrichWithPreview(elements[0]);
-
-      timer = setTimeout(monitorDom, 1000);
+      else
+        timer = setTimeout(monitorDom, 1000);
     }
 
     function getElements() {
@@ -104,11 +104,13 @@ $(function() {
             // attach to DOM
             insertAfter(canvas, element.querySelector('.title'));
           }
+          timer = setTimeout(monitorDom, 1000);
         })
         .catch(function(e) {
           console.warn('error while getting file', e);
           downloading = false;
           errors[filename] = e;
+          timer = setTimeout(monitorDom, 1000);
         });
     }
 
