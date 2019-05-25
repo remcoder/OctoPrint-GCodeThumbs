@@ -35,7 +35,7 @@ $(function() {
       if (elements.length)
         enrichWithPreview(elements[0]);
       else
-        timer = setTimeout(monitorDom, 1000);
+        timer = setTimeout(monitorDom, 100);
     }
 
     function getElements() {
@@ -89,8 +89,14 @@ $(function() {
 
     function enrichWithPreview(element) {
       const filename = extractKey(element);
-      downloading = true;
+      
+      if (previews[filename]) {
+        insertAfter(previews[filename].canvas, element.querySelector('.title'));
+        timer = setTimeout(monitorDom, 10);
+        return;
+      }
 
+      downloading = true;
       console.log('[GCodePreview] downloading ' + filename);
 
       // TODO: show spinner while downloading
