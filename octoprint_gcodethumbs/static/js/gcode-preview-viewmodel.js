@@ -58,6 +58,9 @@ $(function() {
 
     // TODO: include device and parent folder(s) to ensure uniqueness
     function extractKey(element) {
+      const internal = element.querySelector('.internal');
+      if (internal)
+        return internal.querySelector('span').innerText;
       return element.querySelector('.title').innerText;
     }
 
