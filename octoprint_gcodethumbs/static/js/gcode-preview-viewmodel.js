@@ -16,7 +16,7 @@ $(function() {
       To keep things in proportion we will cache the dom fragments in memory and we'll
       limit our updates to the currently visible area in the scrollable list.
     */
-    const scrollContainer = document.querySelector('.gcode_files');
+    const scrollContainer = document.querySelector('.gcode_files .scroll-wrapper');
     var timer = null;
 
     // TODO: reset timer onscroll
