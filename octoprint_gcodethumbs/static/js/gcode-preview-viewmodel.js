@@ -1,14 +1,14 @@
 $(function() {
   function GCodePreviewViewModel(parameters) {
-    console.log("initializing GCodePreviewViewModel");
+    // console.log("initializing GCodePreviewViewModel");
 
-    var self = this;
-    var downloading = false;
-    var errors = {};
+    const self = this;
+    let downloading = false;
+    const errors = {};
+    const previews = {}; // maps filenames to GCodePreview instances
 
     self.filesViewModel = parameters[0];
-    console.log(self.filesViewModel);
-    const previews = {}; // maps filenames to GCodePreview instances
+    // console.log(self.filesViewModel);
 
     /*
       HACK! unfortunately there seems to be no way to enrich the files section in a clean way
@@ -27,9 +27,10 @@ $(function() {
       const elements = getElements()
         .filter( isVisible )
         .filter( elementNeedsPreview )
-        .filter( hasNotErrored) ;
+        .filter( hasNotErrored );
 
-      console.log('[monitor] ', elements.length, ' elements queued');
+      // if (elements.length > 0)
+      //   console.log('[GCodePreview] ', elements.length, ' elements queued');
 
       if (elements.length)
         enrichWithPreview(elements[0]);
@@ -56,7 +57,7 @@ $(function() {
       return !errors[filename];
     }
 
-    // TODO: include device and parent folder(s) to ensure uniqueness
+    // TODO: include device and parent folder(s) to ensure uniqueness?
     function extractKey(element) {
       const internal = element.querySelector('.internal');
       if (internal)
@@ -65,8 +66,8 @@ $(function() {
     }
 
     // renders a preview unattached to the dom
-    // TODO: cache
-    function renderPreview(element, gcode) {
+    // TODO: cache?
+    function renderPreview(element, gcode, filename) {
         // create canvas
         const canvas = document.createElement('canvas');
 
@@ -75,12 +76,14 @@ $(function() {
           canvas : canvas,
         });
 
+        previews[filename] = preview;
+
         // resize to container
         canvas.width = element.offsetWidth;
 
         // render while still detached from the DOM
         preview.processGCode(gcode);
-
+        
         return canvas;
     }
 
@@ -88,20 +91,22 @@ $(function() {
       const filename = extractKey(element);
       downloading = true;
 
+      console.log('[GCodePreview] downloading ' + filename);
+
       // TODO: show spinner while downloading
       OctoPrint.files.download("local", filename)
         .done(function(response, rstatus) {
           downloading = false;
           if(rstatus === 'success') {
 
-            const canvas = renderPreview(element, response);
+            const canvas = renderPreview(element, response, filename);
 
             // attach to DOM
-            insertAfter(canvas, element.querySelector('.title'))
+            insertAfter(canvas, element.querySelector('.title'));
           }
         })
         .catch(function(e) {
-          console.warn('error while getting file', e)
+          console.warn('error while getting file', e);
           downloading = false;
           errors[filename] = e;
         });
@@ -115,4 +120,4 @@ $(function() {
   }
 
   OCTOPRINT_VIEWMODELS.push([GCodePreviewViewModel, ["filesViewModel"], "#element"]);
-})
+});
