@@ -34,7 +34,7 @@ $(function() {
       if (elements.length)
         enrichWithPreview(elements[0]);
 
-      timer = setTimeout(monitorDom, 100);
+      timer = setTimeout(monitorDom, 1000);
     }
 
     function getElements() {
