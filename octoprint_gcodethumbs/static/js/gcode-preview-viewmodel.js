@@ -90,7 +90,7 @@ $(function() {
             insertAfter(canvas, element.querySelector('.title'))
           }
         })
-        .error(function() {
+        .catch(function() {
           downloading = false;
         });
     }
