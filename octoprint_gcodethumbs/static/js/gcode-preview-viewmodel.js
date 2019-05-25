@@ -4,6 +4,7 @@ $(function() {
 
     var self = this;
     var downloading = false;
+    var errors = {};
 
     self.filesViewModel = parameters[0];
     console.log(self.filesViewModel);
@@ -25,7 +26,8 @@ $(function() {
 
       const elements = getElements()
         .filter( isVisible )
-        .filter( elementNeedsPreview );
+        .filter( elementNeedsPreview )
+        .filter( hasNotErrored) ;
 
       console.log('[monitor] ', elements.length, ' elements queued');
 
@@ -47,6 +49,11 @@ $(function() {
     // check if the element has been enriched with a preview already
     function elementNeedsPreview(element) {
       return !element.querySelector('canvas');
+    }
+
+    function hasNotErrored(element) {
+      const filename = extractKey(element);
+      return !errors[filename];
     }
 
     // TODO: include device and parent folder(s) to ensure uniqueness
@@ -90,8 +97,10 @@ $(function() {
             insertAfter(canvas, element.querySelector('.title'))
           }
         })
-        .catch(function() {
+        .catch(function(e) {
+          console.warn('error while getting file', e)
           downloading = false;
+          errors[filename] = e;
         });
     }
 
