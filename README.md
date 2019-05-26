@@ -11,3 +11,14 @@ Install via the bundled [Plugin Manager](https://github.com/foosel/OctoPrint/wik
 or manually using this URL:
 
     https://github.com/remcoder/OctoPrint-GCodeThumbs/archive/master.zip
+
+## Changelog
+
+0.2.0
+  * fixed detection of which gcode files are scrolled into view
+  * added caching to avoid re-downloading gcode files
+  * use internal filename if it differs from the original name
+  * improved error handling
+
+0.1.0
+  * initial version
