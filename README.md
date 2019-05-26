@@ -2,6 +2,8 @@
 
 Enriches the file list with a preview thumbnail for each gcode file.
 
+![image](https://user-images.githubusercontent.com/461650/58376079-2ec9a400-7f62-11e9-85e0-f48329dabb2c.png)
+
 ## Use at your own risk
 This plugin uses some hack to what is otherwise impossible via the official API. This means that upgrading Octoprint or using other plugins will lead to all sorts of issues.
 
