@@ -88,7 +88,9 @@ $(function() {
     }
 
     function enrichWithPreview(element) {
-      const filename = extractKey(element);
+      const path = self.filesViewModel.currentPath();
+      const prefix  = path ? path+'/' : '';
+      const filename = prefix + extractKey(element);
       
       if (previews[filename]) {
         insertAfter(previews[filename].canvas, element.querySelector('.title'));
