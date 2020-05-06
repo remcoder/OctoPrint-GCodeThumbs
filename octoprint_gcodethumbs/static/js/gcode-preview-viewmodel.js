@@ -88,7 +88,10 @@ $(function() {
     }
 
     function enrichWithPreview(element) {
-      const filename = extractKey(element);
+        const pathEl = document.querySelector('.back-path [data-bind*=currentPath]');
+        let path = pathEl? pathEl.innerText+'/' : '';
+        if (path == '/') path = '';
+        const filename =  path+extractKey(element);
       
       if (previews[filename]) {
         insertAfter(previews[filename].canvas, element.querySelector('.title'));
