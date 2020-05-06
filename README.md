@@ -16,6 +16,9 @@ or manually using this URL:
 
 ## Changelog
 
+0.2.1
+  * properly handle files in subfolders
+
 0.2.0
   * fixed detection of which gcode files are scrolled into view
   * added caching to avoid re-downloading gcode files
