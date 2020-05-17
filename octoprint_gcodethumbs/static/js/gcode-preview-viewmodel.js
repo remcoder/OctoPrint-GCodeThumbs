@@ -72,7 +72,7 @@ $(function() {
         const canvas = document.createElement('canvas');
 
         // instantiate preview
-        const preview = new GCodePreview({
+        const preview = new GCodePreview.Preview({
           canvas : canvas,
         });
 

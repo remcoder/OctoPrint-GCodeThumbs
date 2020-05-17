@@ -11,7 +11,7 @@ class GCodeThumbsPlugin(octoprint.plugin.StartupPlugin,
 
     def get_assets(self):
         return dict(
-            js=["js/gcode-parser.js", "js/gcode-preview.js", "js/gcode-preview-viewmodel.js"]
+            js=["js/gcode-preview.js", "js/gcode-preview-viewmodel.js"]
         )
 
 __plugin_implementation__ = GCodeThumbsPlugin()
