@@ -15,6 +15,8 @@ or manually using this URL:
     https://github.com/remcoder/OctoPrint-GCodeThumbs/archive/master.zip
 
 ## Changelog
+0.2.2
+  * Update GCode Preview to v2.0.6. This fixes an issue with the model sometime not being visible or centered correctly
 
 0.2.1
   * properly handle files in subfolders
