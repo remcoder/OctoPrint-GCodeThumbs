@@ -1,6 +1,6 @@
 # Octoprint Gcode Thumbs
 
-* NOTICE: I'm not actively developing this plugin anymore. You're welcome to send in a PR and I promise to review it and I'll attempt to merge it. Other than that I will not be developing on it anymore *
+_NOTICE: I'm not actively developing this plugin anymore. You're welcome to send in a PR and I promise to review it and I'll attempt to merge it. Other than that I will not be developing on it anymore_
 
 Enriches the file list with a preview thumbnail for each gcode file.
 
