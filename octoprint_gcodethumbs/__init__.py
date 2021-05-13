@@ -15,3 +15,4 @@ class GCodeThumbsPlugin(octoprint.plugin.StartupPlugin,
         )
 
 __plugin_implementation__ = GCodeThumbsPlugin()
+__plugin_pythoncompat__ = ">=2.7,<4"
